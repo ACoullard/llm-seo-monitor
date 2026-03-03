@@ -1,0 +1,29 @@
+{
+  "name": "llm-seo-monitor",
+  "version": "1.0.0",
+  "description": "Lightweight local LLM SEO testing tool",
+  "type": "module",
+  "bin": {
+    "monitor": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx cli.ts",
+    "start": "node dist/cli.js",
+    "serve": "tsx server.ts",
+    "serve:prod": "node dist/server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.4.3",
+    "commander": "^12.1.0",
+    "cron-parser": "^4.9.0",
+    "date-fns": "^3.6.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/node": "^20.12.11",
+    "tsx": "^4.10.5",
+    "typescript": "^5.4.5"
+  }
+}

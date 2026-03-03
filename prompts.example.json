@@ -1,0 +1,52 @@
+[
+  {
+    "id": "crm-tools",
+    "query_text": "What are the best open source CRM tools?",
+    "schedule_cron": "0 9 * * 1",
+    "is_active": true,
+    "targets": [
+      { "model": "openai/gpt-5-nano",                "use_search": false },
+      { "model": "anthropic/claude-haiku-4.5",        "use_search": false },
+      { "model": "google/gemini-3-flash-preview",     "use_search": false }
+    ],
+    "rules": [
+      {
+        "name": "HubSpot Mentioned",
+        "description": "Is HubSpot mentioned anywhere in the response?",
+        "type": "binary"
+      },
+      {
+        "name": "HubSpot Ranking",
+        "description": "What position is HubSpot in the list of recommended tools?",
+        "type": "ranking"
+      },
+      {
+        "name": "HubSpot Sentiment",
+        "description": "What is the overall sentiment toward HubSpot in the response?",
+        "type": "sentiment"
+      }
+    ]
+  },
+  {
+    "id": "ai-coding-assistant",
+    "query_text": "What is the best AI coding assistant available today?",
+    "schedule_cron": "0 8 * * *",
+    "is_active": false,
+    "targets": [
+      { "model": "openai/gpt-5-nano",             "use_search": true },
+      { "model": "x-ai/grok-4.1-fast",            "use_search": true }
+    ],
+    "rules": [
+      {
+        "name": "GitHub Copilot Mentioned",
+        "description": "Is GitHub Copilot mentioned in the response?",
+        "type": "binary"
+      },
+      {
+        "name": "GitHub Copilot Ranking",
+        "description": "What position is GitHub Copilot in any ranked list?",
+        "type": "ranking"
+      }
+    ]
+  }
+]
